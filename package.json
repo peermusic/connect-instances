@@ -1,5 +1,5 @@
 {
-  "name": "meta-webrtc-swarm",
+  "name": "connect-instances",
   "version": "0.0.0",
   "description": "A wrapper around multiple instances of `(secure-)webrtc-swarm`.",
   "main": "index.js",
