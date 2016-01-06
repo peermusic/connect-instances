@@ -8,11 +8,16 @@ var invite = a.issueInvite('localhost:7001')
 
 b.receiveInvite(invite[1])
 
-b.metaSwarm.on('data', function (data) { console.log(data) })
+b.metaSwarm.on('data', function (data) {
+  console.log('b: someone wrote me:', data)
+})
 
-setTimeout(function () {
-  a.metaSwarm.send('hello I am a! Who are you?')
-}, 500)
+a.metaSwarm.on('connect', function () {
+  console.log('a: someone connected to me')
+  setTimeout(function () {
+    a.metaSwarm.send('hello I am a! Who are you?')
+  }, 300)
+})
 
 window.a = a
 window.b = b
