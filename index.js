@@ -8,7 +8,7 @@ var swarm = require('secure-webrtc-swarm')
 inherits(Connect, events.EventEmitter)
 module.exports = Connect
 
-function Connect (keyPair, peers, hubs, opts) {
+function Connect (keyPair, whitelist, hubs, opts) {
   if (!(this instanceof Connect)) return new Connect(opts)
   if (!opts) opts = {}
 
@@ -27,6 +27,7 @@ function Connect (keyPair, peers, hubs, opts) {
   this.opts = opts.opts || {}
   this.opts.keyPair = this.keyPair
   this.opts.namespace = opts.namespace || 'peermusic'
+  this.opts.whitelist = whitelist || []
 
   this._init()
 }
