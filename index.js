@@ -64,17 +64,16 @@ Connect.prototype.issueInvite = function (hub) {
   this.metaSwarm.swarms[hub].issuedInvites.push(signPubKey)
 
   return [signPubKey,
-    'web+peermusic://' + hub + '/#' + myPubKey + ':' + signPrivKey]
+    'web+peermusic://INVITE#' + hub + '#' + myPubKey + '#' + signPrivKey]
 }
 
 Connect.prototype.receiveInvite = function (uri) {
   function parseInvite (uri) {
-    // format: web-peermusic://host:port/#boxPubkey:signPrivKey
-    var parts = uri.split('/#', 2)
-    var hub = parts[0].substr(parts[0].indexOf('://') + 3)
-    parts = parts[1].split(':', 2)
-    var pubKey = parts[0]
-    var signPrivKey = parts[1]
+    // format: web+peermusic://INVITE#host:port#boxPubkey#signPrivKey
+    var parts = uri.split('#')
+    var hub = parts[1]
+    var pubKey = parts[2]
+    var signPrivKey = parts[3]
 
     return [hub, pubKey, {[pubKey]: signPrivKey}]
   }
