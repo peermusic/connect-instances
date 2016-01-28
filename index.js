@@ -26,6 +26,8 @@ function Connect (keyPair, whitelist, hubs, opts) {
 
   this.opts = opts.opts || {}
   this.opts.keyPair = this.keyPair
+  this.opts.issuedInvites = opts.issuedInvites || []
+  this.opts.receivedInvites = opts.receivedInvites || {}
   this.opts.namespace = opts.namespace || 'peermusic'
   this.opts.whitelist = whitelist || []
 
