@@ -13,7 +13,7 @@
     "events": "^1.1.0",
     "inherits": "^2.0.1",
     "meta-swarm": "git+https://github.com/peermusic/meta-swarm.git",
-    "secure-webrtc-swarm": "git+https://github.com/peermusic/secure-webrtc-swarm.git",
+    "secure-webrtc-swarm": "git+https://github.com/pguth/secure-webrtc-swarm.git",
     "tweetnacl": "^0.13.2"
   },
   "devDependencies": {
